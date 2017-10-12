@@ -1,11 +1,11 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class Intern_puzzle 
+public class minNumRequired
 {
 	public static void main(String[] args) throws Exception
 	{
-        // File input
+                // File input
 		File file = new File(args[0]);
 		Scanner in = new Scanner(file);
 		
