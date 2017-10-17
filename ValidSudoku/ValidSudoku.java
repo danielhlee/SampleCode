@@ -1,18 +1,23 @@
 boolean validSudoku(char[][] grid) 
 {
+    // Boolean value being returned if valid or not valid sudoku 
     boolean legal = true;
-    int count = 0;
+    // Keep count of rows read
+    int rowCount = 0;
+    // Hashsets to record characters and check if they have already appeared in the same 3 x 3 square.
     HashSet<Character> a = new HashSet<Character>(); 
     HashSet<Character> b = new HashSet<Character>(); 
     HashSet<Character> c = new HashSet<Character>(); 
     
+    // For loops to check each position in 2D array
     for (int i = 0; i < grid.length; i++)
     {   
         for (int j = 0; j < grid.length; j++)
-        {
+        { 
+            // If character is a number
             if (grid[i][j] != '.')
             {
-                // same row case
+                // Returns false for not a valid sudoku puzzle if number already appears in same row
                 for (int k = j + 1; k < grid.length; k++) 
                 {
                     if (grid[i][k] == grid[i][j])
@@ -21,7 +26,7 @@ boolean validSudoku(char[][] grid)
                     }
                 }
                 
-                // same column case
+                // Returns false for not a valid sudoku puzzle if number already appears in same column 
                 for (int l = i + 1; l < grid.length; l++) 
                 {
                     if (grid[l][j] == grid[i][j])
@@ -30,7 +35,9 @@ boolean validSudoku(char[][] grid)
                     }
                 }
                 
-                // same square case
+                // Returns false for not a valid sudoku puzzle if number already appears in same 3x3 square 
+                
+                // For checking square in the first three columns
                 if (j < 3)
                 {
                     if(a.contains(grid[i][j]))
@@ -43,6 +50,7 @@ boolean validSudoku(char[][] grid)
                     }
                         
                 }    
+                // For checking square in the middle three columns
                 else if (j < 6)
                 {
                     if(b.contains(grid[i][j]))
@@ -54,6 +62,7 @@ boolean validSudoku(char[][] grid)
                         b.add(grid[i][j]);
                     }
                 }
+                // For checking Square in the last three columns
                 else
                 {
                      if(c.contains(grid[i][j]))
@@ -67,8 +76,9 @@ boolean validSudoku(char[][] grid)
                 }
             }
         }
-        count++;
+        rowCount++;
         
+        // Reset the HashSets after three rows since it is a new square.
         if (count % 3 == 0)
         {
             a.clear();
@@ -76,5 +86,7 @@ boolean validSudoku(char[][] grid)
             c.clear();
         }           
     }
+    
+    // Return valid sudoku puzzle
     return legal;
 }
