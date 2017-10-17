@@ -18,7 +18,7 @@ public class minNumRequired
 		{
 			// Minimum number of people that need to be running for people to join
 			int minNumber = in.nextInt();
-			// Number of people that will join each round
+			// Number of people that will join each row of input
 			int joined = in.nextInt();
 			// Number of people added each row of input
 			int roundAdded = 0;
