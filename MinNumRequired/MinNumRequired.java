@@ -23,6 +23,7 @@ public class minNumRequired
 	    // Number of people added each row of input
 	    int roundAdded = 0;
 			
+            // Enough people are running for more people to join
 	    if  (minNumber == 0)
 	    {
 	        currCount += joined;
