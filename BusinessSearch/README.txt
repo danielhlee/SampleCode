@@ -1,7 +1,5 @@
 Created a business search program that is started from the command line with one argument, the filename of a textfile 
-containing a lsit of businesses and phone numbers. Each line of the text file contains the business name, a comma, then a phone number.
-For example: Dan's Burgers, (512)365-1322. Once the program is started it reads the enter business database file and 
-builds an array of businesses sorted by name. It then waits for input on stdin.
+containing a list of businesses and phone numbers. Each line of the text file contains the business name, a comma, then a phone number. For example: Dan's Burgers, (512)365-1322. Once the program is started it reads the enter business database file and builds an array of businesses sorted by name. It then waits for input on stdin.
 After a business name is entered, the serves does a binary search to find the given business.
 If the business name is not found, the server prints "NOT FOUND".
 If the business is found then the program prints out its telephone number.
