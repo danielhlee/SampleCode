@@ -1,23 +1,3 @@
-/**
- * Program: Hand
- * Authors: Daniel Lee (dle69@ucsc.edu)  Driving 360 minutes. Navigating 360 minutes.
- *
- * CMP 12A/L, Fall 2013
- * Programming Assignment #5
- * November 24, 2013
- *
- * This code is utilized by BlackJack.java
- *
- * Input:
- * no input
- *
- * Output:
- * no ouputs
- *
- * Bugs and limitations:
- * Success rate is 99.99% unless someone really blew it.
- */
-
 import java.util.ArrayList;
 
 public class Hand
