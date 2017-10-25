@@ -34,50 +34,50 @@ public class BlackJack
 		        System.out.println("=== BLACKJACK! ===");
 			System.out.println();
 		    }
-		    	else // draw two cards and subtract two from deck count
-			{
-			    System.out.println();
-			}
-			deckCount = deckCount - 2;
-		    }
-		    else // less than 2 cards left on deck
+		    else // draw two cards and subtract two from deck count
 		    {
-		    	System.out.println("-- NOT ENOUGH CARDS LEFT ON DECK --");
-			System.out.println();
-			System.out.println("BYE");
-			break;
+	                System.out.println();
 		    }
+		    deckCount = deckCount - 2;
 		}
-		else if (choice == 'h') // hit option entered
+		else // less than 2 cards left on deck
 		{
-		    if (hand.getCardCount() > 0) // checks if new hand is drawn
+		    System.out.println("-- NOT ENOUGH CARDS LEFT ON DECK --");
+	            System.out.println();
+	            System.out.println("BYE");
+		    break;
+		}
+	    }
+	    else if (choice == 'h') // hit option entered
+	    {
+                if (hand.getCardCount() > 0) // checks if new hand is drawn
+		{
+		    if (deckCount > 1) // checks if there is at least one card on deck
 		    {
-		    	if ( deckCount > 1) // checks if there is at least one card on deck
+		    	if (hand.cardSum < 21 ) // checks if hand sum is less than 21
 			{
-			    if (hand.cardSum < 21 ) // checks if hand sum is less than 21
+			    if(hand.getCardCount() < 5) // checks if there are less than 5 cards in hand
 			    {
-			        if(hand.getCardCount() < 5) // checks if there are less than 5 cards in hand
+			    	hand.hit(blackJack); // call hit method
+				hand.showCards(); // print cards in hand 
+				if (hand.cardSum > 21) // bust case card sum > 21
 				{
-			            hand.hit(blackJack); // call hit method
-				    hand.showCards(); // print cards in hand 
-				    if (hand.cardSum > 21) // bust case card sum > 21
-				    {
-				    	System.out.println("-- BUSTED! --");
-					System.out.println();
-				    }
-				    else if ( hand.cardSum == 21) // black jack case card sum = 21
-				    {
-				    	System.out.println("-- BLACKJACK! --");
-					System.out.println();
-				    }
-				    else // draw card and subtract from deck count
-				    {
-				    	System.out.println();
-				    }
-				    deckCount = deckCount - 1; 
+				    System.out.println("-- BUSTED! --");
+			            System.out.println();
 				}
-				else // 5 cards in hand already case
+				else if ( hand.cardSum == 21) // black jack case card sum = 21
 				{
+				    System.out.println("-- BLACKJACK! --");
+				    System.out.println();
+				}
+				else // draw card and subtract from deck count
+				{
+				    System.out.println();
+				}
+				deckCount = deckCount - 1; 
+		            }
+			    else // 5 cards in hand already case
+		            {
 				    System.out.println("-- ALREADY 5 CARDS IN HAND --");
 				    hand.showCards();
 				    System.out.println();
