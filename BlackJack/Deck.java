@@ -22,8 +22,8 @@ class Deck
     // -------------------
     public Deck()
     {
-      deck = new int[52];
-      for(int i=0; i<52; i++) deck[i] = i;
+        deck = new int[52];
+        for(int i=0; i<52; i++) deck[i] = i;
     }
 
     // -------------------
@@ -31,8 +31,8 @@ class Deck
     // -------------------
     public void print()
     {
-      for(int i=0; i<52; i++) System.out.printf( "%3d", deck[i] );
-      System.out.println();
+        for(int i=0; i<52; i++) System.out.printf( "%3d", deck[i] );
+        System.out.println();
     }
 
     // -------------------
@@ -40,19 +40,19 @@ class Deck
     // -------------------
     public void shuffle()
     {
-      int i, j, tmp;
-      int seed;
-      Random r;
-      Scanner scan = new Scanner(System.in);
-      System.out.print( "Enter your lucky number: " );
-      seed = scan.nextInt();
-      r = new Random(seed); // initialize random # generator
-      for(i=0; i<52; i++ )  // shuffle deck of cards
-      {
-        j = r.nextInt(52);  // randomly pick a card
-        tmp = deck[j];      // swap with i-th card
-        deck[j] = deck[i];
-        deck[i] = tmp;
-      }
+        int i, j, tmp;
+        int seed;
+        Random r;
+        Scanner scan = new Scanner(System.in);
+        System.out.print( "Enter your lucky number: " );
+        seed = scan.nextInt();
+        r = new Random(seed); // initialize random # generator
+        for(i=0; i<52; i++)  // shuffle deck of cards
+        {
+            j = r.nextInt(52);  // randomly pick a card
+            tmp = deck[j];      // swap with i-th card
+            deck[j] = deck[i];
+            deck[i] = tmp;
+        }
     }
 }
