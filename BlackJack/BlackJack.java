@@ -26,7 +26,7 @@ public class BlackJack
 	    if (choice == 'n') // new deck option entered
 	    {
 	    	if (deckCount >= 2) // checks that there are enough cards for new hand
-		{
+	        {
 		    hand.dealNewCard(blackJack); // call hand method to deal two cards
 		    hand.showCards(); // display cards
 		    if ( hand.cardSum == 21) // black jack case
@@ -46,19 +46,19 @@ public class BlackJack
 	            System.out.println();
 	            System.out.println("BYE");
 		    break;
-		}
+	        }
 	    }
 	    else if (choice == 'h') // hit option entered
 	    {
                 if (hand.getCardCount() > 0) // checks if new hand is drawn
 		{
 		    if (deckCount > 1) // checks if there is at least one card on deck
-		    {
+	            {
 		    	if (hand.cardSum < 21 ) // checks if hand sum is less than 21
 			{
 			    if(hand.getCardCount() < 5) // checks if there are less than 5 cards in hand
 			    {
-			    	hand.hit(blackJack); // call hit method
+			     	hand.hit(blackJack); // call hit method
 				hand.showCards(); // print cards in hand 
 				if (hand.cardSum > 21) // bust case card sum > 21
 				{
@@ -74,41 +74,41 @@ public class BlackJack
 				{
 				    System.out.println();
 				}
-				deckCount = deckCount - 1; 
-		            }
+			        deckCount = deckCount - 1; 
+		            } 
 			    else // 5 cards in hand already case
 		            {
-				    System.out.println("-- ALREADY 5 CARDS IN HAND --");
-				    hand.showCards();
-				    System.out.println();
-				}	
-			    } 			   
-			    else // get new hand case because of bust or black jack
-			    {
-			    	System.out.println("-- GET A NEW HAND FIRST --");
-			        System.out.println();
-			    }
-			}
-			else // no cards left on deck case 
+		            	System.out.println("-- ALREADY 5 CARDS IN HAND --");
+				hand.showCards();
+				System.out.println();
+			    }	
+			} 			   
+			else // get new hand case because of bust or black jack
 			{
-			    System.out.println("-- NO CARDS LEFT ON DECK --");
+			    System.out.println("-- GET A NEW HAND FIRST --");
 			    System.out.println();
-			    System.out.println("BYE");
-			    break;
 			}
-		    }
-		    else // case where new hand has not been drawn
-		    {
-		    	System.out.println("-- GET A NEW HAND FIRST --");
+	            }
+	            else // no cards left on deck case 
+	            {
+		    	System.out.println("-- NO CARDS LEFT ON DECK --");
 			System.out.println();
+			System.out.println("BYE");
+			break;
 		    }
 		}
-		else if (choice == 'q') // quit option entered exit program
+		else // case where new hand has not been drawn
 		{
-		    deckCount = -1;
-		    System.out.println();
-		    System.out.print("BYE");
-	        }	
+		    System.out.println("-- GET A NEW HAND FIRST --");
+	            System.out.println();
+		}
+	    }
+            else if (choice == 'q') // quit option entered exit program
+            {
+                deckCount = -1;
+		System.out.println();
+		System.out.print("BYE");
+	    }	
 	} // end of while loop
 	in.close();
     }
