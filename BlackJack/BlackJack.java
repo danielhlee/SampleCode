@@ -1,28 +1,3 @@
-/**
- * Program: BlackJack
- * Authors: Daniel Lee (dle69@ucsc.edu)  Driving 360 minutes. Navigating 360 minutes.
- *
- * CMP 12A/L, Fall 2013
- * Programming Assignment #5
- * November 24, 2013
- *
- * This program allows the user to play a game of solitaire black
- * jack from one deck of cards.
- *
- * Input:
- * A lucky number and chars n, h, q to play the game.
- *
- * Output:
- * Prints out the prompts and the cards in your hand. Prints out bust if your
- * hand sum is greater than 21 and black jack if your hand sum is equal to
- * 21. Prints out bye when you quit program.
- *
- * Bugs and limitations:
- * Program prints a InputMismatchException if anything other than an int is entered
- * for the lucky number.
- * Success rate is 99.99% unless someone really blew it.
- */
-
 import java.util.Scanner;
 
 public class BlackJack
@@ -33,17 +8,19 @@ public class BlackJack
 	 */
 	public static void main(String[] args)
 	{
+		// Create a deck
 		Deck blackJack = new Deck();
 		Scanner in = new Scanner(System.in);
 		char choice;
 		int deckCount = 52;
+		// Randomize it
 		blackJack.shuffle();
 		Hand hand = new Hand();
 		
-		// start of while loop
+		// start of while loop to make sure there are enough cards in deck
 		while (deckCount >= 0)
 		{
-			System.out.print("Enter a (n)ew hand, (h)it, or (q)uit: "); // prompt
+			System.out.print("Enter a (n)ew hand, (h)it, or (q)uit: "); // prompt to play or quit
 			choice = in.next().charAt(0);
 			
 			if (choice == 'n') // new deck option entered
